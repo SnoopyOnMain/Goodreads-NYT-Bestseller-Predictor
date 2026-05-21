@@ -12,10 +12,18 @@ A common pitfall in bestseller prediction is "Data Leakage"—where the model us
 
 2. **Sentiment Proxy:** We acknowledge that review sentiment and volume are collected over the book's lifetime. In a production environment, this model would be used as a "Post-Launch Monitor" (30-60 days after release) to predict long-term NYT list endurance.
 
-## Performance
-- **AUC-ROC:** 0.82 (approx)
-- **Precision@100:** 96%
-- **Key Features:** Average Sentiment, Sentiment Volatility, and Engagement Metrics.
+## Performance & Results
+The tuned **LightGBM Classifier** significantly outperformed the Logistic Regression baseline, specifically in its ability to identify the "top" commercial successes.
+
+- **AUC-ROC:** 0.8282
+- **Precision@100:** 0.96 (96 of the top 100 predicted books were actual NYT bestsellers)
+- **F1-Score Improvement:** 88% increase over the baseline model.
+
+### **Top Predictive Features:**
+1. **Author Reputation:** (LOO-encoded historical success)
+2. **Average Sentiment:** (VADER compound scores)
+3. **Engagement Volume:** (Ratings and review counts)
+4. **Series Status:** (Whether the book is part of a series)
 
 ## Repository Structure
 - `01_Data_Acquisition.ipynb`: Memory-efficient data loading and cleaning.
@@ -29,7 +37,7 @@ Due to file size constraints, the raw data is not included in this repository. Y
 - Required files: `goodreads_books.json.gz` and `goodreads_reviews_dedup.json.gz`.
 
 ## Installation & Usage
-1. Clone the repo: `git clone https://github.com/YOUR_USERNAME/Goodreads-Predictor.git`
+1. Clone the repo: `git clone https://github.com/SnoopyOnMain/Goodreads-NYT-Bestseller-Predictor`
 2. Install dependencies: `pip install -r requirements.txt`
 3. Place the downloaded `.gz` files into the `data/` folder.
 4. Run the notebooks in sequential order.
