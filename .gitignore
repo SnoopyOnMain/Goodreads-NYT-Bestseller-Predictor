@@ -1,0 +1,21 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+# --- Environments ---
+goodreads_env/
+.venv/
+env/
+
+# --- Data (CRITICAL: Prevents pushing GBs of data) ---
+data/
+output/
+*.json.gz
+*.csv
+
+# --- Python & Jupyter internals ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# --- VS Code internals ---
+.vscode/
