@@ -5,6 +5,13 @@ An end-to-end Machine Learning pipeline that uses Sentiment Analysis on reader r
 ## Project Overview
 This project processes over 6 million book reviews using **VADER Sentiment Analysis** and trains a **LightGBM Classifier** to identify commercial success based on community engagement and sentiment volatility.
 
+### Handling Temporal Leakage
+A common pitfall in bestseller prediction is "Data Leakage"—where the model uses future information to predict the past. To ensure the integrity of our results, I implemented the following:
+
+1. **Leave-One-Out (LOO) Encoding for Author Reputation:** Instead of using the author's total bestseller count, I calculated a "Leave-One-Out" feature. This ensures that for any book $X$, the reputation feature only considers the author's *other* successful titles, preventing the target variable from leaking into the training features.
+
+2. **Sentiment Proxy:** We acknowledge that review sentiment and volume are collected over the book's lifetime. In a production environment, this model would be used as a "Post-Launch Monitor" (30-60 days after release) to predict long-term NYT list endurance.
+
 ## Performance
 - **AUC-ROC:** 0.82 (approx)
 - **Precision@100:** 96%
