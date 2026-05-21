@@ -1,0 +1,17 @@
+# Data Manipulation & Math
+pandas==2.2.2
+numpy==1.26.4
+
+# Machine Learning
+scikit-learn
+lightgbm
+
+# Natural Language Processing
+nltk
+
+# Visualization
+matplotlib
+seaborn
+
+# Jupyter Connectivity
+ipykernel
