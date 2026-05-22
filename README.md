@@ -36,6 +36,11 @@ The model was evaluated using **Stratified 5-Fold Cross-Validation**.
 - `03_Sentiment_Analysis.ipynb`: Chunked NLP processing using VADER.
 - `04_Modeling_and_Evaluation.ipynb`: Gradient Boosting, Focal Loss, and P@K metrics.
 
+## Data Source
+Due to file size constraints, raw data is not included. 
+- **Source:** [UCSD Book Graph](https://sites.google.com/eng.ucsd.edu/ucsdbookgraph/home)
+- **Required Files:** `goodreads_books.json.gz` and `goodreads_reviews_dedup.json.gz` (Place in a `/data` folder).
+
 ## Installation & Usage
 1. Clone the repo: `git clone https://github.com/SnoopyOnMain/Goodreads-NYT-Bestseller-Predictor`
 2. Create and activate a virtual environment:
